@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmmh4ga0jaiw2"]
+[gd_scene load_steps=2 format=3 uid="uid://c46kc8urnx2h7"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_4w4rs"]
-[ext_resource type="Script" path="res://GodotPI.gd" id="2_7eono"]
+[ext_resource type="Script" path="res://main.gd" id="1_guddd"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -10,61 +9,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4w4rs")
-
-[node name="GodotPI" type="Node" parent="."]
-script = ExtResource("2_7eono")
+script = ExtResource("1_guddd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.832
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 0.536011
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="ColorPicker" type="ColorPicker" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -149.0
-offset_top = -288.0
-offset_right = 149.0
-offset_bottom = 288.0
-grow_horizontal = 2
-grow_vertical = 2
+anchor_left = 0.278
+anchor_top = 0.233
+anchor_right = 0.477
+anchor_bottom = 0.381
+offset_left = -0.256042
+offset_top = 0.0159912
+offset_right = 0.495972
+offset_bottom = 0.112
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.101
-anchor_top = 0.469
-anchor_right = 0.194
-anchor_bottom = 0.526
-offset_left = -0.352005
-offset_top = 0.0879822
-offset_right = -0.488007
-offset_bottom = 0.151978
-grow_vertical = 2
-text = "full_screen"
+anchor_left = 0.588
+anchor_top = 0.253
+anchor_right = 0.681
+anchor_bottom = 0.378
+offset_left = -0.375977
+offset_top = 0.0559845
+offset_right = -0.512085
+offset_bottom = 0.0559845
+text = "Another led"
 
-[node name="LineEdit" type="LineEdit" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.109
-anchor_top = 0.31
-anchor_right = 0.228
-anchor_bottom = 0.358
-offset_left = 0.431992
-offset_top = 0.119995
-offset_right = 0.343994
-offset_bottom = 0.0159912
-placeholder_text = "text"
-
-[connection signal="color_changed" from="ColorPicker" to="." method="_on_color_picker_color_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
