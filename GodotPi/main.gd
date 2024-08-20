@@ -1,14 +1,19 @@
 extends Control
 
+var led_out : GodotPi.GPIO = GodotPi.GPIO.new(26, GodotPi.GPIO.PinDirection.OUTPUT, GodotPi.GPIO.PinPulling.PULL_DOWN)
+var another_led_out : GodotPi.GPIO = GodotPi.GPIO.new(6, GodotPi.GPIO.PinDirection.OUTPUT, GodotPi.GPIO.PinPulling.PULL_DOWN)
+var button_in : GodotPi.GPIO = GodotPi.GPIO.new(16, GodotPi.GPIO.PinDirection.INPUT, GodotPi.GPIO.PinPulling.PULL_UP)
 
 
-func _on_color_picker_color_changed(color: Color) -> void:
-	$ColorRect.color = color
-
-var full : bool = false
-func _on_button_pressed() -> void:
-	if full:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+func _process(delta: float) -> void:
+	if button_in.digital_read():
+		led_out.digital_write(false)
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	full = !full
+		led_out.digital_write(true)
+
+
+var another_on : bool = false
+
+func _on_button_pressed() -> void:
+	another_on = !another_on
+	another_led_out.digital_write(another_on)
